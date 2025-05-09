@@ -1,0 +1,10 @@
+---
+- name: Print custom welcome message
+  hosts: servers
+  vars_files:
+    - value.yml
+  tasks:
+    - name: Show welcome message
+      debug:
+        msg: "{{ welcome_message }}"
+

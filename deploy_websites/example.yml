@@ -1,0 +1,20 @@
+---
+- name: Install package and create user
+  hosts: servers
+  become: true
+  vars:
+    package_name: apache2
+    user_name: tester
+
+  tasks:
+    - name: Install a package
+      apt:
+        name: "{{ package_name }}"
+        state: present
+        update_cache: yes
+
+    - name: Create a user
+      user:
+        name: "{{ user_name }}"
+        shell: /bin/bash
+

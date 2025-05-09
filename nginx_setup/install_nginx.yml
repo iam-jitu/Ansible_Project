@@ -1,0 +1,21 @@
+-
+  name: Install Nginx on Ubuntu servers
+  hosts: prd
+  become: true  # Run tasks with sudo
+  tasks:
+    - name: Update apt package list
+      apt:
+        update_cache: yes
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Start and enable Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+
