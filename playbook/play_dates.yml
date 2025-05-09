@@ -1,0 +1,17 @@
+---
+- name: Server Info Playbook
+  hosts: servers
+  tasks:
+    - name: Show current date
+      command: date
+
+    - name: Show system uptime
+      command: uptime
+
+    - name: Show who is logged in
+      command: who
+
+    - name: Show disk usage
+      command: df -h
+
+
